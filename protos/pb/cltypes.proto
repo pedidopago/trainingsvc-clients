@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "github.com/pedidopago/trainingsvc-clients/protos/pb";
+
+message Client {
+  string id = 1;
+  string name = 2;
+  int64 birthday = 3;
+  int64 score = 4;
+  // FIXME: adicionar created_at
+}
+
+message OptInt64 { int64 value = 1; }
+message OptString { string value = 1; }
+
+message Int64Comp {
+  int64 value = 1;
+  string op = 2;
+}

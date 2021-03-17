@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "github.com/pedidopago/trainingsvc-clients/protos/pb";
+
+import "cltypes.proto";
+
+service ClientsService {
+  rpc NewClient(NewClientRequest) returns (NewClientResponse) {}
+  rpc QueryClients(QueryClientsRequest) returns (QueryClientsResponse) {}
+  rpc GetClients(GetClientsRequest) returns (GetClientsResponse) {}
+  rpc DeleteClient(DeleteClientRequest) returns (DeleteClientResponse) {}
+  rpc DeleteAllClients(DeleteAllClientsRequest)
+      returns (DeleteAllClientsResponse) {}
+  rpc NewMatch(NewMatchRequest) returns (NewMatchResponse) {}
+  rpc Sort(SortRequest) returns (SortResponse) {}
+}
+
+message NewClientRequest {
+  string name = 1;
+  int64 birthday = 2; // unixnano
+  int64 score = 3;
+}
+
+message NewClientResponse { string id = 1; }
+
+message QueryClientsRequest {
+  OptString id = 1;
+  OptString name = 2;
+  Int64Comp birthday = 3;
+  Int64Comp score = 4;
+  // FIXME: adicionar created_at
+}
+
+message QueryClientsResponse { repeated string ids = 1; }
+
+message GetClientsRequest { repeated string ids = 1; }
+
+message GetClientsResponse { repeated Client clients = 1; }
+
+message DeleteClientRequest { string id = 1; }
+
+message DeleteClientResponse {}
+
+message DeleteAllClientsRequest {}
+
+message DeleteAllClientsResponse {}
+
+message NewMatchRequest {
+  string client_id = 1;
+  int64 score = 2;
+}
+
+message NewMatchResponse { int64 id = 1; }
+
+message SortRequest {
+  repeated string items = 1;
+  bool remove_duplicates = 2;
+}
+
+message SortResponse { repeated string items = 1; }
