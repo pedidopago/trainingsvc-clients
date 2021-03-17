@@ -1,5 +1,6 @@
 # Teste Microserviço Clients
 
+* Clonar o repositório `git clone git@github.com:pedidopago/trainingsvc-clients.git`
 * Implementar e corrigir métodos neste microservice de clients (marcados com TODO e FIXME);
 * Executar o `./run_server.sh` e o `./run_client.sh`;
 * O `./run_client.sh` deve exibir "SUCCESS";
