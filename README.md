@@ -6,6 +6,8 @@
 * O `./run_client.sh` deve exibir "SUCCESS";
 * Os unit tests devem executar com sucesso ao rodar `go test ./...`;
 
+Ao concluir, enviar url do repositório p/ todo@todo
+
 ## Dependências
 
 ### protoc
