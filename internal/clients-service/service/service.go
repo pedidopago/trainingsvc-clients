@@ -34,8 +34,6 @@ func New(ctx context.Context, sv *grpc.Server, config Config) error {
 
 	pb.RegisterClientsServiceServer(sv, svc)
 
-	//FIXME: cron (needs cron?)
-
 	return nil
 }
 
